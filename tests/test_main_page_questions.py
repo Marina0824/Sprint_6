@@ -5,7 +5,6 @@ from sources.data import TestData
 
 
 class TestQuestions:
-    driver = None
     @allure.title('Проверка вопросов и ответов')
     @allure.description('Тестирование соответствия ответов вопросам')
     @pytest.mark.parametrize('number, expected_answer', TestData.expected_answer)

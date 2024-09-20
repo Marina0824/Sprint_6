@@ -18,5 +18,5 @@ class TestOrder:
         order_page.fill_form_1(data_user)
         order_page.fill_form_2()
         order_page.confirm_order()
-        success = order_page.find_element(OrderPageLocators.STATUS)
+        success = order_page.find_button_status()
         assert success.is_displayed(), "Кнопка Посмотреть статус не отображается"

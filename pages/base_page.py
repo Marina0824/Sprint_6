@@ -22,15 +22,12 @@ class BasePage:
         element = self.driver.find_element(*locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
-    def wait_visibility_of_element(self, locator):
-        return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator))
-
     def get_text_of_element(self, locator):
         return self.driver.find_element(*locator).text
 
     @allure.step('Куки!')
     def click_cookie(self):
-        self.wait_visibility_of_element(BasePageLocators.COOKIE)
+        self.find_element(BasePageLocators.COOKIE)
         self.click_element(BasePageLocators.COOKIE)
 
     def click_java(self, locator):

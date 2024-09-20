@@ -1,25 +1,23 @@
 import allure
-from pages.base_page import BasePage
-from locators.base_page_locators import BasePageLocators
-from locators.order_page_locators import OrderPageLocators
+from pages.main_page import MainPage
 
 
 class TestLogo:
     @allure.title('Проверка перехода на главную страницу при клике на лого Самокат')
     def test_logo_scooter(self, driver):
-        logo = BasePage(driver)
-        logo.find_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
-        logo.click_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
-        logo.find_element(BasePageLocators.LINK_SCOOTER)
-        logo.click_element(BasePageLocators.LINK_SCOOTER)
-        home = logo.find_element(BasePageLocators.HOME_HEADER)
+        logo = MainPage(driver)
+        logo.find_order_button_in_header()
+        logo.click_order_button_in_header()
+        logo.find_logo_scooter()
+        logo.click_logo_scooter()
+        home = logo.find_home_header()
         assert home.is_displayed(), "Переход на главную страницу не произошел"
 
     @allure.title('Проверка открытия в новом окне Дзена при клике на лого Яндекса')
     def test_logo_yandex(self, driver):
-        logo_ya = BasePage(driver)
-        logo_ya.find_element(BasePageLocators.LINK_YANDEX)
-        logo_ya.click_element(BasePageLocators.LINK_YANDEX)
+        logo_ya = MainPage(driver)
+        logo_ya.find_logo_yandex()
+        logo_ya.click_logo_yandex()
         logo_ya.switch_to_next_tab()
-        dzen = logo_ya.find_element(BasePageLocators.LOGO_DZEN)
+        dzen = logo_ya.find_logo_dzen()
         assert dzen.is_displayed(), "Переход на страницу Дзена не произошел"
