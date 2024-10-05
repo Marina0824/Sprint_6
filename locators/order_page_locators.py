@@ -2,9 +2,6 @@ from selenium.webdriver.common.by import By
 
 
 class OrderPageLocators:
-    ORDER_BUTTON_IN_HEADER = By.XPATH, "//div[contains(@class, 'Header_Nav')]/button[text()='Заказать']"
-    ORDER_BUTTON_IN_MIDDLE = By.XPATH, "//div[contains(@class, 'Home_FinishButton')]/button[text()='Заказать']"
-
     FIELD_NAME = By.XPATH, "//input[@placeholder='* Имя']"
     FIELD_SURNAME = By.XPATH, "//input[@placeholder='* Фамилия']"
     FIELD_ADDRESS = By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']"

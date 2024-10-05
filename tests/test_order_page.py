@@ -1,15 +1,15 @@
 import pytest
 import allure
 from pages.order_page import OrderPage
-from pages.order_page import OrderPageLocators
+from pages.base_page import BasePageLocators
 from sources.data import TestData
 
 
 class TestOrder:
     @allure.title('Проверка оформления заказа')
     @allure.description('Тестирование оформления заказа из двух разных точек входа')
-    @pytest.mark.parametrize('button, data_user', [(OrderPageLocators.ORDER_BUTTON_IN_HEADER, TestData.data_user1),
-                                                   (OrderPageLocators.ORDER_BUTTON_IN_MIDDLE, TestData.data_user2)])
+    @pytest.mark.parametrize('button, data_user', [(BasePageLocators.ORDER_BUTTON_IN_HEADER, TestData.data_user1),
+                                                   (BasePageLocators.ORDER_BUTTON_IN_MIDDLE, TestData.data_user2)])
     def test_successful_order(self, driver, button, data_user):
         order_page = OrderPage(driver)
         order_page.click_cookie()

@@ -1,6 +1,5 @@
 import allure
 from locators.main_page_locators import MainPageLocators
-from locators.order_page_locators import OrderPageLocators
 from locators.base_page_locators import BasePageLocators
 from pages.base_page import BasePage
 
@@ -23,11 +22,11 @@ class MainPage(BasePage):
 
     @allure.step('Находим в хедере кнопку Заказать')
     def find_order_button_in_header(self):
-        self.find_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
+        self.find_element(BasePageLocators.ORDER_BUTTON_IN_HEADER)
 
     @allure.step('Кликаем в хедере на кнопку Заказать')
     def click_order_button_in_header(self):
-        self.click_element(OrderPageLocators.ORDER_BUTTON_IN_HEADER)
+        self.click_element(BasePageLocators.ORDER_BUTTON_IN_HEADER)
 
     @allure.step('Находим лого Самокат')
     def find_logo_scooter(self):
